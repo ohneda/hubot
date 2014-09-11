@@ -8,10 +8,16 @@
 cronJob = require('cron').CronJob
 
 module.exports = (robot) ->
-  cronTest = new cronJob('0 12 07 * * *', () =>
+  cronTest = new cronJob('0 21 7 * * *', () =>
     envelope = room: "#zpub-development"
-    robot.send envelope, "クーロンで自動投稿のテスト"
+    robot.send envelope, "1クーロンで自動投稿のテスト"
   )
   cronTest.start()
 
+module.exports = (robot) ->
+  cronTest = new cronJob('0 22 7 * * *', () =>
+    envelope = room: "#zpub-development"
+    robot.send envelope, "2ここにメッセージを突っ込みます。"
+  )
+  cronTest.start()
 
